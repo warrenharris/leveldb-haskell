@@ -7,20 +7,22 @@ Prerequisites:
 
 * [GHC 7.*](http://www.haskell.org/ghc)
 * [Cabal](http://www.haskell.org/cabal)
-* Optional: [Snappy](http://code.google.com/p/snappy),
-  if compression support is desired
-* Optional: `autoconf`
+* [LevelDB](https://code.google.com/r/kimaltintop-leveldb)
 
-To install the latest version from hackage:
+Note: you'll need to install `libleveldb` as a shared library. The above link
+points to a fork of the original LevelDB repo which enables installing LevelDB
+as a shared library. To do so, clone the repository and run:
 
 ```shell
-$ cabal install leveldb-haskell
+$ make
+$ make install INSTALL_PATH=/usr/local/lib
 ```
 
-To install from checked-out source:
+Also, make sure to copy the `include/leveldb` directory to `/usr/local/include`.
+
+Then, install `leveldb-haskell` from source:
 
 ```shell
-$ autoconf
 $ cabal install
 ```
 
